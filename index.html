@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cubo Colorido sem a Estrutura de Dados</title>
+</head>
+<body>
+  <div style="margin-top: 20px; display: flex; justify-content: center;">
+    <h3 style="color: rgb(25, 114, 2);">Cubo Colorido Sem Estrutura de Dados</h3>
+  </div>
+  <!-- ideia que tiveram em sala, de colocar alinhado o canva na tella  --> 
+  <body style="margin: 0; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+    <canvas id="gl-canvas" width="512" height="512" style="border: 3px solid  rgb(25, 114, 2);">
+    </canvas>
+
+  <script id="fragment-shader" type="x-shader/x-fragment">
+    #version 300 es
+    precision highp float;
+    in vec4 vColor;
+    out vec4 fColor;
+    void main()
+    {
+      fColor = vColor;
+    }
+  </script>
+
+  <script id="vertex-shader" type="x-shader/x-vertex">
+    #version 300 es
+    in vec4 aPosition;
+    in vec4 aColor;
+    out vec4 vColor;
+    void main()
+    {
+      gl_Position = aPosition;
+      vColor = aColor;
+      gl_PointSize = 5.0;
+    }
+  </script>
+    
+  <script src="initShaders.js"></script>
+  <script src="MV.js"></script>
+  <script src="cuboColoridoSemEstrutura.js"></script>
+</body>
+
+</html>
